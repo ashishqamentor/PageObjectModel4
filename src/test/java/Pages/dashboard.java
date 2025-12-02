@@ -6,24 +6,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class dashboard
+public class dashboard extends helperclass
 {
 
 	public WebDriver w; // null
 	
 	@FindBy(xpath = "//input[@type='search']")WebElement search;
-	@FindBy(xpath = "//button[contains(text(),'ADD TO CART')]") WebElement add;
+	//@FindBy(xpath = "//button[contains(text(),'ADD TO CART')]") WebElement add;
+	By add = By.xpath("//button[contains(text(),'ADD TO CART')]");
 	
 	public dashboard(WebDriver webfrombaseclass) 
 	{
+		super(webfrombaseclass);
 		this.w= webfrombaseclass;
 		PageFactory.initElements(w, this);
 	}
 
-	public void addtokart(String veg)
+	public void addtokart(String veg) throws Exception
 	{
 		search.sendKeys(veg);
-		add.click();
+		waitforEleBy(add).click();
 		search.clear();
 	}
 	

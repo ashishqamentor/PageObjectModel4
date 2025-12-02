@@ -1,14 +1,16 @@
 package TestPackage;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class greenkart extends baseclass
 {
 
+	@Parameters({"url","promo","country"})
 	@Test
-	public void checkoutjourny() throws Exception
+	public void checkoutjourny(String site,String promocode,String Mycountry) throws Exception
 	{
-		openURL("https://rahulshettyacademy.com/seleniumPractise/#/cart");
+		openURL(site);
 		
 		String veglist = exceldataread();
 		String veg[] = veglist.split(",");
@@ -17,7 +19,7 @@ public class greenkart extends baseclass
 		{
 			d.addtokart(temp);
 		}
-			
+		c.checkout(promocode,Mycountry);
 	}
 	
 }
