@@ -1,15 +1,21 @@
 package TestPackage;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,15 +24,20 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+
+import com.google.common.io.Files;
 
 import Pages.checkoutjourney;
 import Pages.dashboard;
+import Pages.loginpage;
 
 public class baseclass 
 {
 	public WebDriver w;  //having knoledge
 	dashboard d;
 	checkoutjourney c;
+	loginpage l;
 	
 	@BeforeTest
 	public void launch() throws Exception
@@ -89,7 +100,8 @@ public class baseclass
 	
 		//creating object
 		d = new dashboard(w);
-		c= new checkoutjourney(w);		
+		c= new checkoutjourney(w);	
+		l= new loginpage(w);
 	}
 		
 	public void openURL(String url)
@@ -116,6 +128,43 @@ public class baseclass
 										//veglist = Brocolli - 1 Kg, Brinjal - 1 Kg ,Mushroom - 1 Kg
 		}
 		return veglist;
+	}
+	
+	
+	@DataProvider(name = "excel")
+	public Object[][] exceldata() throws Exception
+	{
+		FileInputStream fis = new FileInputStream("./Data/login.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		XSSFSheet sh = wb.getSheetAt(1);
+		int rowcount = sh.getLastRowNum();
+		
+		XSSFRow row = sh.getRow(0);
+		int colcount =row.getLastCellNum();
+		
+		Object obj [][] = new Object[rowcount][colcount];
+		
+		for(int i=0;i<rowcount;i++)
+		{
+			row = sh.getRow(i+1);
+			for(int j =0;j<colcount;j++)
+			{
+				XSSFCell cell = row.getCell(j);
+				obj[i][j]= cell.getStringCellValue(); // obj[0][0] == standard_user
+			}
+		}
+		return obj;	
+	}
+	
+	public void screenshot(WebDriver driverinstance, String testname) throws Exception
+	{
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd_HH_mm_ss");
+        String timestamp = LocalDateTime.now().format(dtf);
+		
+		TakesScreenshot tc = (TakesScreenshot)driverinstance;  // null
+		File src = tc.getScreenshotAs(OutputType.FILE);
+		File dest = new File("./Screenshot/"+testname+"_"+timestamp+".png");
+		Files.copy(src, dest);
 	}
 		
 	@AfterTest

@@ -1,11 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
 
 	<listeners>
 		<listener class-name="TestPackage.listen"></listener>
 	</listeners>
 
-	<test thread-count="5" name="Test">
+
+	<test thread-count="5" name="loginsause">
+		<classes>
+			<class name="TestPackage.loginsause" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test thread-count="5" name="greenkart">
 		<parameter name="url"
 			value="https://rahulshettyacademy.com/seleniumPractise/#/"></parameter>
 		<parameter name="promo" value="ashish"></parameter>
@@ -14,6 +22,5 @@
 			<class name="TestPackage.greenkart" />
 		</classes>
 	</test> <!-- Test -->
-
 
 </suite> <!-- Suite -->
