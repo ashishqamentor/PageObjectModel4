@@ -13,7 +13,6 @@ public class loginsause extends baseclass
 		l.logintest(user,pass,expected);
 	}
 	
-	
  
 	/*
 	@Test

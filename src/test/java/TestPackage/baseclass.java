@@ -26,6 +26,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.google.common.io.Files;
 
 import Pages.checkoutjourney;
@@ -156,7 +158,7 @@ public class baseclass
 		return obj;	
 	}
 	
-	public void screenshot(WebDriver driverinstance, String testname) throws Exception
+	public File screenshot(WebDriver driverinstance, String testname) throws Exception
 	{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd_HH_mm_ss");
         String timestamp = LocalDateTime.now().format(dtf);
@@ -164,9 +166,19 @@ public class baseclass
 		TakesScreenshot tc = (TakesScreenshot)driverinstance;  // null
 		File src = tc.getScreenshotAs(OutputType.FILE);
 		File dest = new File("./Screenshot/"+testname+"_"+timestamp+".png");
-		Files.copy(src, dest);
+		Files.copy(src, dest);		
+		return dest;
 	}
 		
+	public ExtentReports extentreportObj()
+	{
+		ExtentSparkReporter reporter = new ExtentSparkReporter("./Report/testreport.html");
+		ExtentReports extent = new ExtentReports();
+		extent.attachReporter(reporter);
+		return extent;
+	}
+	
+	
 	@AfterTest
 	public void terminate()
 	{
