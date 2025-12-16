@@ -12,6 +12,7 @@ public class listen extends baseclass implements ITestListener
 	
 	ExtentReports extent =  extentreportObj();
 	ExtentTest test;
+	ThreadLocal<ExtentTest> thread = new ThreadLocal<ExtentTest>();
 	
 	@Override
 	public void onTestStart(ITestResult result) 
@@ -21,7 +22,8 @@ public class listen extends baseclass implements ITestListener
 		String testname= result.getMethod().getMethodName();
 		System.out.println(" test started");
 		test = extent.createTest(testname);
-		test.info("this is my page object model test");
+		thread.set(test);
+		thread.get().info("this is my page object model test");
 		
 	}
 
@@ -30,13 +32,14 @@ public class listen extends baseclass implements ITestListener
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestSuccess(result);
 		System.out.println(" test successful");
-		test.pass("test is passing");
+		thread.get().pass("test is passing");
 		try {
 			
 			String testname= result.getMethod().getMethodName();
+			Thread.sleep(1000);
 			w = (WebDriver)result.getTestClass().getRealClass().getField("w").get(result.getInstance());
 			String path=screenshot(w,testname).getAbsolutePath();
-			test.addScreenCaptureFromPath(path);
+			thread.get().addScreenCaptureFromPath(path);
 			
 		} catch (Exception e) 
 		{
@@ -52,12 +55,13 @@ public class listen extends baseclass implements ITestListener
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestFailure(result);
 		System.out.println(" test fail");
-		test.fail("test is failing");
+		thread.get().fail("test is failing");
 		try {
 			String testname= result.getMethod().getMethodName();
 			w = (WebDriver)result.getTestClass().getRealClass().getField("w").get(result.getInstance());
+			Thread.sleep(1000);
 			String path=screenshot(w,testname).getAbsolutePath();
-			test.addScreenCaptureFromPath(path);
+			thread.get().addScreenCaptureFromPath(path);
 			
 		} catch (Exception e) 
 		{

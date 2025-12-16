@@ -7,9 +7,10 @@ import org.testng.annotations.Test;
 public class loginsause extends baseclass
 {
 	@Test(dataProvider = "excel")
-	public void login(String user , String pass, String expected)
+	public void login(String user , String pass, String expected) throws Exception
 	{
 		openURL("https://www.saucedemo.com/");
+		Thread.sleep(1000);
 		l.logintest(user,pass,expected);
 	}
 	

@@ -22,11 +22,12 @@ public class loginpage extends helperclass
 		PageFactory.initElements(w, this);
 	}
 
-	public void logintest(String user, String pass,String expected)
+	public void logintest(String user, String pass,String expected) throws Exception
 	{
 		waitforEle(userEle).sendKeys(user);
 		//userEle.sendKeys(user);
 		waitforEle(passEle).sendKeys(pass);
+		Thread.sleep(1000);
 		waitforEle(loginEle).click();
 		
 		String actualURl = w.getCurrentUrl();
