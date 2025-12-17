@@ -47,7 +47,22 @@ public class baseclass
 		FileInputStream fis = new FileInputStream("./Data/config.properties");
 		Properties p = new Properties();
 		p.load(fis);
-		String browser = p.getProperty("browser");
+	//	String browser = p.getProperty("browser");
+		//value_if_false;
+		
+		String browser = System.getProperty("browser") != null ?  System.getProperty("browser") : p.getProperty("browser");
+		
+		/*if(System.getProperty("browser") != null)
+		{
+			browser = System.getProperty("browser");
+		}
+		else
+		{
+			browser = p.getProperty("browser");
+		}
+		
+		*/
+		
 		String env = p.getProperty("env");
 		
 		if(browser.equalsIgnoreCase("chrome"))

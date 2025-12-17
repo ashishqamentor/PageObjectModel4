@@ -25,6 +25,7 @@ public class dashboard extends helperclass
 	public void addtokart(String veg) throws Exception
 	{
 		search.sendKeys(veg);
+		Thread.sleep(1000);
 		waitforEleBy(add).click();
 		search.clear();
 	}
