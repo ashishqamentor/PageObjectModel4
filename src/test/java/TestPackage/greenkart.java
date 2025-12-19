@@ -14,6 +14,7 @@ public class greenkart extends baseclass
 		openURL(site);
 		
 		System.out.println("user a commited");
+		System.out.println("user a is not aware of user b changes ");
 		
 		String veglist = exceldataread();
 		String veg[] = veglist.split(",");
