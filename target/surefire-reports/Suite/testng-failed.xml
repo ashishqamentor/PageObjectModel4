@@ -5,17 +5,14 @@
     <listener class-name="TestPackage.listen"/>
   </listeners>
   <test thread-count="5" name="Test(failed)" verbose="0">
-    <parameter name="promo" value="ashish"/>
-    <parameter name="country" value="India"/>
-    <parameter name="url" value="https://rahulshettyacademy.com/seleniumPractise/#/"/>
     <classes>
-      <class name="TestPackage.greenkart">
+      <class name="TestPackage.loginsause">
         <methods>
           <include name="terminate"/>
           <include name="launch"/>
-          <include name="checkoutjourny" invocation-numbers="0"/>
+          <include name="login" invocation-numbers="1"/>
         </methods>
-      </class> <!-- TestPackage.greenkart -->
+      </class> <!-- TestPackage.loginsause -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
