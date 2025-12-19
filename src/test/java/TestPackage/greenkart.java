@@ -13,6 +13,8 @@ public class greenkart extends baseclass
 	{
 		openURL(site);
 		
+		System.out.println("user B commited");
+		
 		String veglist = exceldataread();
 		String veg[] = veglist.split(",");
 		
