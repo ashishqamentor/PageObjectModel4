@@ -13,11 +13,12 @@ public class greenkart extends baseclass
 	{
 		openURL(site);
 		
+		System.out.println("B is doing changes.");
+		
 		System.out.println("A is doing changes");
-		
+
 		System.out.println("A is working on another day.");
-		
-		
+
 		String veglist = exceldataread();
 		String veg[] = veglist.split(",");
 		
