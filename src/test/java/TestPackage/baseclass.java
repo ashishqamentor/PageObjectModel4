@@ -37,8 +37,8 @@ import Pages.loginpage;
 public class baseclass 
 {
 	public WebDriver w;  //having knoledge
-	dashboard d;
-	checkoutjourney c;
+	public dashboard d;
+	public checkoutjourney c;
 	loginpage l;
 	
 	@BeforeTest

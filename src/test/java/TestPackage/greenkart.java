@@ -11,14 +11,11 @@ public class greenkart extends baseclass
 	@Test
 	public void checkoutjourny(String site,String promocode,String Mycountry) throws Exception
 	{
-		openURL(site);
 		
-		System.out.println("B is doing changes.");
+		// given
+		openURL(site);		
 		
-		System.out.println("A is doing changes");
-
-		System.out.println("A is working on another day.");
-
+		// when
 		String veglist = exceldataread();
 		String veg[] = veglist.split(",");
 		
@@ -26,6 +23,8 @@ public class greenkart extends baseclass
 		{
 			d.addtokart(temp);
 		}
+		
+		//and
 		c.checkout(promocode,Mycountry);
 	}
 	
