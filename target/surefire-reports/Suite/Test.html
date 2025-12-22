@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Dec 20 23:03:00 IST 2025</td>
+<td>Started on:</td><td>Mon Dec 22 22:35:38 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>21 seconds (21936 ms)</td>
+<tr><td>Total time:</td><td>38 seconds (38320 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,31 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='stepdefinationLogin.testrunnerLogin.runScenario()'><b>runScenario</b><br>Test class: stepdefinationLogin.testrunnerLogin<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify login", "Login functionality"</td>
+<td><div><pre>java.lang.AssertionError: The following asserts failed:
+	expected [https://www.saucedemo.com/inventory.html] but found [https://www.saucedemo.com/]
+	at stepdefinationLogin.loginstep.urlexpected(loginstep.java:46)
+	at ✽.Url is expected to display &quot;https://www.saucedemo.com/inventory.html&quot;(file:///C:/Users/koush/eclipse-workspace/PageObjectModel4/src/test/java/featurefiles/login.feature:7)
+... Removed 2 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1742235652", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1742235652'><pre>java.lang.AssertionError: The following asserts failed:
+	expected [https://www.saucedemo.com/inventory.html] but found [https://www.saucedemo.com/]
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+	at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+	at stepdefinationLogin.loginstep.urlexpected(loginstep.java:46)
+	at ✽.Url is expected to display &quot;https://www.saucedemo.com/inventory.html&quot;(file:///C:/Users/koush/eclipse-workspace/PageObjectModel4/src/test/java/featurefiles/login.feature:7)
+</pre></div></td>
+<td>4</td>
+<td>stepdefinationLogin.testrunnerLogin@3270d194</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,10 +101,30 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='stepdefinationGreenkart.testrunnerGreenkart.runScenario()'><b>runScenario</b><br>Test class: stepdefinationGreenkart.testrunnerGreenkart<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify checkout journey.", "vegitable shopping."</td>
+<td title='stepdefinationLogin.testrunnerLogin.runScenario()'><b>runScenario</b><br>Test class: stepdefinationLogin.testrunnerLogin<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify login", "Login functionality"</td>
 <td></td>
-<td>19</td>
-<td>stepdefinationGreenkart.testrunnerGreenkart@3270d194</td></tr>
+<td>11</td>
+<td>stepdefinationLogin.testrunnerLogin@3270d194</td></tr>
+<tr>
+<td title='stepdefinationLogin.testrunnerLogin.runScenario()'><b>runScenario</b><br>Test class: stepdefinationLogin.testrunnerLogin<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify login", "Login functionality"</td>
+<td></td>
+<td>3</td>
+<td>stepdefinationLogin.testrunnerLogin@3270d194</td></tr>
+<tr>
+<td title='stepdefinationLogin.testrunnerLogin.runScenario()'><b>runScenario</b><br>Test class: stepdefinationLogin.testrunnerLogin<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify login", "Login functionality"</td>
+<td></td>
+<td>8</td>
+<td>stepdefinationLogin.testrunnerLogin@3270d194</td></tr>
+<tr>
+<td title='stepdefinationLogin.testrunnerLogin.runScenario()'><b>runScenario</b><br>Test class: stepdefinationLogin.testrunnerLogin<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify login", "Login functionality"</td>
+<td></td>
+<td>3</td>
+<td>stepdefinationLogin.testrunnerLogin@3270d194</td></tr>
+<tr>
+<td title='stepdefinationLogin.testrunnerLogin.runScenario()'><b>runScenario</b><br>Test class: stepdefinationLogin.testrunnerLogin<br>Test method: Runs Cucumber Scenarios<br>Parameters: "To verify login", "Login functionality"</td>
+<td></td>
+<td>3</td>
+<td>stepdefinationLogin.testrunnerLogin@3270d194</td></tr>
 </table><p>
 </body>
 </html>
