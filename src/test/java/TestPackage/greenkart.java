@@ -14,9 +14,7 @@ public class greenkart extends baseclass
 		
 		// given
 		openURL(site);	
-		
-		System.out.println("i am trying to create feature branch");
-		
+			
 		// when
 		String veglist = exceldataread();
 		String veg[] = veglist.split(",");
